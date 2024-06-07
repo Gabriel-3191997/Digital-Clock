@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        body{
+
+margin: 0;
+background-color:aliceblue;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* height: 100vh; */
+
+.card{
+
+background-color:black;
+height:auto;
+font-size: xx-large;
+font-weight: bolder;
+text-align: center;
+/* padding-top: 50px; */
+color:white;
+width: 350px;
+border:none;
+
+}
+
+.heading{
+
+    text-align: center;
+    padding: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+
+h2{
+
+    color: white;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p{
+
+    color: white;
+    font-size: large;
+    text-align: center;
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+}
+
+
+#clock{
+
+    padding-top: 50px;
+}
+
+    </style>
+</head>
+<body>
+   <div class="container">
+    <h1 class="heading">
+        digital clock
+    </h1>
+    <div class="card">
+        <h2 id="clock"></h2>
+        <p id="date"></p>
+       </div>
+   </div>
+   <script>
+
+let previousTime = '';
+
+function updateClock() {
+    const currentTime = new Date();
+    const displayTime = currentTime.toLocaleTimeString();
+
+    if (displayTime !== previousTime) {
+        document.getElementById('clock').innerHTML = displayTime;
+        previousTime = displayTime;
+    }
+}
+
+setInterval(updateClock, 1000);
+
+//  Date function
+
+const myDate = new Date();
+let currentDate = myDate.toDateString();
+document.getElementById('date').innerHTML = currentDate;
+
+
+   </script>
+</body>
+</html>
